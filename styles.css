@@ -1,0 +1,235 @@
+/* ==========================================================================
+   ESTUDIO CONTABLE MARÍA LAURA GIRAUDO - SAN JUSTO, SANTA FE
+   Estilos UI/UX Vanguardistas, Mobile-First y Micro-Interacciones
+   ========================================================================== */
+
+:root {
+  --brand-purple: #9333ea;
+  --brand-purple-light: #a855f7;
+  --brand-purple-dark: #6b21a8;
+  --brand-pink: #db2777;
+  --brand-pink-light: #ec4899;
+  --brand-orange: #f97316;
+  --brand-orange-light: #fb923c;
+  --brand-emerald: #10b981;
+  --brand-emerald-dark: #059669;
+  --brand-slate-dark: #0f172a;
+}
+
+/* Tipografías base */
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: #1e293b;
+  background-color: #f8fafc;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, .font-heading {
+  font-family: 'Outfit', sans-serif;
+  letter-spacing: -0.02em;
+}
+
+/* --------------------------------------------------------------------------
+   GRADIENTES DE IDENTIDAD VISUAL (Lila, Rosado y Acentos Naranjas)
+   -------------------------------------------------------------------------- */
+.brand-gradient {
+  background: linear-gradient(135deg, #8b5cf6 0%, #d946ef 50%, #f97316 100%);
+}
+
+.brand-gradient-hover {
+  background-size: 200% 200%;
+  background-image: linear-gradient(135deg, #8b5cf6 0%, #ec4899 50%, #f97316 100%);
+  transition: all 0.4s ease;
+}
+.brand-gradient-hover:hover {
+  background-position: right center;
+}
+
+.brand-text-gradient {
+  background: linear-gradient(135deg, #7e22ce 0%, #c026d3 50%, #ea580c 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.brand-border-gradient {
+  border-image: linear-gradient(135deg, #8b5cf6, #ec4899, #f97316) 1;
+}
+
+/* --------------------------------------------------------------------------
+   GLASSMORPHISM PREMIUM (Navbar, Cards y Floating Action Bar)
+   -------------------------------------------------------------------------- */
+.glass-navbar {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(226, 232, 240, 0.7);
+  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.04);
+}
+
+.glass-floating-bar {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 0 16px 36px -4px rgba(15, 23, 42, 0.16),
+              0 0 0 1px rgba(147, 51, 234, 0.08);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(241, 245, 249, 1);
+}
+
+/* --------------------------------------------------------------------------
+   TARJETAS MODERNAS, SOFT SHADOWS Y ELEVACIÓN SUAVE
+   -------------------------------------------------------------------------- */
+.modern-card {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.3s ease;
+  box-shadow: 0 4px 18px -4px rgba(15, 23, 42, 0.05);
+}
+
+.modern-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 30px -10px rgba(147, 51, 234, 0.12),
+              0 4px 12px -2px rgba(15, 23, 42, 0.04);
+  border-color: rgba(192, 132, 252, 0.4);
+}
+
+.agro-card {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.agro-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #10b981, #f59e0b);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.agro-card:hover::before {
+  opacity: 1;
+}
+
+/* --------------------------------------------------------------------------
+   MICRO-INTERACCIONES Y PULSOS DINÁMICOS
+   -------------------------------------------------------------------------- */
+.interactive-btn {
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.2s ease,
+              background-color 0.2s ease;
+}
+
+.interactive-btn:active {
+  transform: scale(0.96);
+}
+
+/* Pulso sutil y elegante para WhatsApp */
+@keyframes pulseRadar {
+  0% {
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.5);
+  }
+  70% {
+    box-shadow: 0 0 0 12px rgba(16, 185, 129, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+  }
+}
+
+.animate-wa-pulse {
+  animation: pulseRadar 2.4s infinite cubic-bezier(0.4, 0, 0.6, 1);
+}
+
+/* Destello sutil de brillo en botones principales */
+.shimmer-btn {
+  position: relative;
+  overflow: hidden;
+}
+
+.shimmer-btn::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -60%;
+  width: 40%;
+  height: 200%;
+  background: linear-gradient(
+    60deg,
+    rgba(255, 255, 255, 0) 20%,
+    rgba(255, 255, 255, 0.25) 50%,
+    rgba(255, 255, 255, 0) 80%
+  );
+  transform: rotate(25deg);
+  animation: shimmerSweep 4.5s infinite;
+}
+
+@keyframes shimmerSweep {
+  0%, 65% {
+    left: -60%;
+  }
+  100% {
+    left: 140%;
+  }
+}
+
+/* Leve flotación estética */
+@keyframes floatGentle {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+.animate-float {
+  animation: floatGentle 5s ease-in-out infinite;
+}
+
+/* Fondos ambientales de malla (Mesh gradients suaves) */
+.bg-mesh-radial {
+  background-image: 
+    radial-gradient(circle at 10% 20%, rgba(168, 85, 247, 0.08) 0%, transparent 40%),
+    radial-gradient(circle at 90% 30%, rgba(249, 115, 22, 0.07) 0%, transparent 45%),
+    radial-gradient(circle at 50% 85%, rgba(236, 72, 153, 0.06) 0%, transparent 50%);
+}
+
+/* --------------------------------------------------------------------------
+   AJUSTES MOBILE-FIRST Y SAFE AREA (Evita solapamiento con la barra inferior)
+   -------------------------------------------------------------------------- */
+.mobile-safe-bottom {
+  padding-bottom: calc(5.5rem + env(safe-area-inset-bottom, 0px));
+}
+
+@media (min-width: 768px) {
+  .mobile-safe-bottom {
+    padding-bottom: 0;
+  }
+}
+
+/* Barra de scroll estética */
+::-webkit-scrollbar {
+  width: 9px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 6px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
